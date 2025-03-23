@@ -24,11 +24,7 @@ namespace Cukiernia.Core.Plan
                 Console.WriteLine($"Nazwa: {ciasto.Nazwa}");
                 Console.WriteLine($"Rodzaj: {ciasto.Rodzaj}");
                 Console.WriteLine("Składniki:");
-                foreach (var skladnik in ciasto.Składniki)
-                {
-                    Console.WriteLine($"Składniki: {string.Join(", ", ciasto.Składniki)}");
-
-                }
+                Console.WriteLine($"Składniki: {string.Join(", ", ciasto.Składniki)}");
                 Console.WriteLine();
             }
         }
@@ -42,11 +38,7 @@ namespace Cukiernia.Core.Plan
                 Console.WriteLine($"Nazwa: {ciasto.Nazwa}");
                 Console.WriteLine($"Rodzaj: {ciasto.Rodzaj}");
                 Console.WriteLine("Składniki:");
-                foreach (var skladnik in ciasto.Składniki)
-                {
-                    Console.WriteLine($"Składniki: {string.Join(", ", ciasto.Składniki)}");
-
-                }
+                Console.WriteLine($"Składniki: {string.Join(", ", ciasto.Składniki)}");
                 Console.WriteLine();
             }
         }
