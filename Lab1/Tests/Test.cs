@@ -1,4 +1,5 @@
 ﻿using Cukiernia.Core.Plan;
+using Cukiernia.Core.Interfaces;
 using Cukiernia.Infrastructure.Fabryki;
 
 namespace Cukiernia.Tests
