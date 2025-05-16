@@ -1,7 +1,6 @@
-﻿using FactoryMethodLogistics.Core.Managers;
-using Logistics.Core;
-using Logistics.Core.Interfaces;
-using Logistics.Infrastructure.Factories;
+﻿using Exercise1.Infrastructure.Packages.LargePackageType;
+using Exercise1.Infrastructure.Packages.SmallPackageType;
+using FactoryMethodLogistics.Core.Managers;
 
 class Program
 {
@@ -9,7 +8,7 @@ class Program
     {
         var manager = SingletonManager.Instance;
 
-        manager.SetFactory(new YourPackageFactoryType());
+        manager.SetFactory(new SmallPackageFactory());
         manager.CreatePackage();
 
         manager.SetFactory(new LargePackageFactory());
