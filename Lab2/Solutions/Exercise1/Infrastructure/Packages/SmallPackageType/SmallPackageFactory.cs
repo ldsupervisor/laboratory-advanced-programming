@@ -2,7 +2,7 @@
 using FactoryMethodLogistics.Core.Interfaces;
 using Logistics.Core.Interfaces;
 
-namespace Logistics.Infrastructure.Factories
+namespace Exercise1.Infrastructure.Packages.SmallPackageType
 {
     public class SmallPackageFactory : IPackageFactory
     {

@@ -1,6 +1,6 @@
 ﻿using Logistics.Core.Interfaces;
 
-namespace Exercise1.Infrastructure.Factories
+namespace Exercise1.Infrastructure.Packages.LargePackageType
 {
     public class LargePackage : IPackage
     {

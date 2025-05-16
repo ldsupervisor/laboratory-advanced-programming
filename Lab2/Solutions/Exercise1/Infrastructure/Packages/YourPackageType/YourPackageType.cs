@@ -2,20 +2,13 @@
 
 namespace Exercise1.Infrastructure.Factories
 {
-    public class SmallPackage : IPackage
-    {
+    /*Create your own Exemplary package type below that inherits from IPackage
+    and implements the PreparePackage method.
+    note that your implemetaion does not affect the whole code due to the FactoryMethod pattern
+    you could expand the type of packages as you wish
+    but you have to implement the IPackage interface */
 
-        private static int _globalCounter = 0;
-        private readonly int _id;
 
 
-        public SmallPackage()
-        {
-            _id = ++_globalCounter;
-        }
-        public void PreparePackage()
-        {
-            Console.WriteLine($"Small package number {_id} prepared.");
-        }
-    }
+
 }
