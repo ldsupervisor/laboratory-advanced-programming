@@ -1,49 +1,52 @@
-﻿// Visited object
-var house = new House();
+﻿// definition and declaration of flowers with different watering systems
+List<INewWateringSystem> flowers = new List<INewWateringSystem>
+        {
+            new ModernPot(),
+            new OldPotAdapter(new OldPot())
+        };
 
-// Create visitors
-IGuest mother = new Mother();
-IGuest sibling = new Sibling();
-
-// The level of cleanliness
-Console.WriteLine($"Initial cleanliness: {house.Cleanliness}\n");
-
-// Calling visiting
-house.Accept(sibling);
-house.Accept(mother);
-house.Accept(sibling);
-
-// Definitions
-
-public interface IGuest
+//water each flower using the unified watering system interface
+foreach (var flower in flowers)
 {
-    void Visit(House house);
+    flower.Water();
 }
 
-public class House
+// Interface with new watering system
+public interface INewWateringSystem
 {
-    public int Cleanliness { get; set; } = 2;
-
-    public void Accept(IGuest guest)
+    void Water();
+}
+// Modern pot with new watering system
+public class ModernPot : INewWateringSystem
+{
+    public void Water()
     {
-        guest.Visit(this);
+        Console.WriteLine("Watering (modern pot).");
     }
 }
 
-public class Mother : IGuest
+// Old pot with an old watering system
+public class OldPot
 {
-    public void Visit(House house)
+    public void FillWaterFromBottom()
     {
-        house.Cleanliness += 3;
-        Console.WriteLine($"Mother visit. Cleanliness now: {house.Cleanliness}.");
+        Console.WriteLine("Filling water (old pot).");
     }
 }
 
-public class Sibling : IGuest
+// Adapter class that adapts the old pot to the new watering system interface
+public class OldPotAdapter : INewWateringSystem
 {
-    public void Visit(House house)
+    private readonly OldPot _oldPot;
+
+    public OldPotAdapter(OldPot oldPot)
     {
-        house.Cleanliness += 1;
-        Console.WriteLine($"Sibling visit. Cleanliness now: {house.Cleanliness}.");
+        _oldPot = oldPot;
+    }
+
+    //adapts the old pot's method to the new watering system interface
+    public void Water()
+    {
+        _oldPot.FillWaterFromBottom();
     }
 }
