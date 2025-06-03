@@ -1,17 +1,17 @@
 ﻿/* 
- the program demonstrates the Visitor design pattern
- it is a simulation of remote university system with different users
- it shows short certain parameters for different system member and generate logs report
- thanks to visitor pattern we can add new types of users without changing the existing code
+ The program demonstrates the Visitor design pattern.
+ It is a simulation of remote university system with different users.
+ It shows short certain parameters for different system member and generate logs report.
+ Thanks to visitor pattern we can add new types of users without changing the existing code
  */
 
-// set of unique university members
+// Set of unique university members
 var people = new HashSet<IUniversityMember>
 {
     new Student("Andrew Smith", new List<int> { 5, 4, 3, 2, 1, 0 }),
     new Teacher("John Kowalski", 142, new List<string> { "Mathematics", "Physics", "Chemistry" }),
     new Administrator("Director", new List<string> { "Log no. 1" }),
-    //creation of Administrator with delay to simulate different time report
+    // Creation of Administrator with delay to simulate different time report
     new Func<IUniversityMember>(() =>
     {
         Thread.Sleep(1000);
@@ -20,15 +20,15 @@ var people = new HashSet<IUniversityMember>
     new Administrator("Default admin of the system")
 };
 
-// adding log entry for the default admin, which deosn't have any logs yet
+// Adding log entry for the default admin, which deosn't have any logs yet
 var defaultAdmin = people.OfType<Administrator>().FirstOrDefault(a => a.Name == "Default admin");
 defaultAdmin?.AddUser();
 
 
-// creating visitor for report generation
+// Creating visitor for report generation
 var visitor = new ReportVisitor();
 
-// visit each person and generate a report
+// Visit each person and generate a report
 foreach (var person in people)
 {
     // the Accept method is used to accept the visitor, typical in Visitor pattern
@@ -36,7 +36,7 @@ foreach (var person in people)
     Console.WriteLine();
 }
 
-// system member interface
+// System member interface
 public interface IUniversityMember
 {
     string Name { get; }
