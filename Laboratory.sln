@@ -59,7 +59,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryMethod_1", "Lab1\Sol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryMethod_2", "Lab1\Solutions\FactoryMethod_2\FactoryMethod_2.csproj", "{7B7F1BFF-28B9-4757-B2D2-08FB69818B1B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OtherPatterns", "OtherPatterns", "{5F0F5595-E038-4287-8BF5-2AF29768A5C7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Patterns", "Patterns", "{5F0F5595-E038-4287-8BF5-2AF29768A5C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderPattern", "BuilderPattern\BuilderPattern.csproj", "{79765685-E288-4658-9EF2-EF4F49C9D846}"
 EndProject
