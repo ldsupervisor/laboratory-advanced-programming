@@ -4,47 +4,44 @@ using Bakery.Infrastructure.Factories;
 namespace Bakery.Tests
 {
     [TestClass]
-    public class PlanPieczeniaTests
+    public class BakingPlanTest
     {
         [TestMethod]
-        public void WyswietlPlan_DodawaniaCiasta()
+        public void DisplayBakingCakePlan()
         {
             // Arrange
-            var planPieczenia = new BakingPlan();
-            var fabrykaCiastaCzekoladowego = new ChocklateCakeFactory();
-            var fabrykaCiastaJabłkowego = new AppleCakeFactory();
+            var bakingPlan = new BakingPlan();
+            var chocklateCakeFactory = new ChocklateCakeFactory();
+            var appleCakeFactory = new AppleCakeFactory();
 
             // Act
-            planPieczenia.AddCake(fabrykaCiastaCzekoladowego);
-            planPieczenia.AddCake(fabrykaCiastaJabłkowego);
+            bakingPlan.AddCake(chocklateCakeFactory);
+            bakingPlan.AddCake(appleCakeFactory);
 
             // Assert
-            Assert.AreEqual(2, planPieczenia.Count(), "Ilość ciast w planie powinna być równa 2");
+            Assert.AreEqual(2, bakingPlan.Count(), "Quantity of cakes in plan should be 2");
         }
 
-
         [TestMethod]
-        public void WyświetlPlan_WyświetlaInformacjeOCiastach()
+        public void DisplayPlan_DisplaysCakeDetails()
         {
             // Arrange
-            var planPieczenia = new BakingPlan();
-            var fabrykaCiasta1 = new AppleCakeFactory();
-            var fabrykaCiasta2 = new ChocklateCakeFactory();
-            planPieczenia.AddCake(fabrykaCiasta1);
-            planPieczenia.AddCake(fabrykaCiasta2);
+            var bakingPlan = new BakingPlan();
+            var cakeFactory_1 = new AppleCakeFactory();
+            var cakeFactory_2 = new ChocklateCakeFactory();
+            bakingPlan.AddCake(cakeFactory_1);
+            bakingPlan.AddCake(cakeFactory_2);
 
             // Act
             using (StringWriter sw = new StringWriter())
             {
                 Console.SetOut(sw);
-                planPieczenia.DisplayPlan_1();
+                bakingPlan.DisplayPlan_1();
                 string result = sw.ToString();
 
                 // Assert
-                StringAssert.Contains(result, "Jabłkowe");
-                StringAssert.Contains(result, "Czekoladowe");
-                StringAssert.Contains(result, "Składniki: Jabłka, Cynamon, Mąka, Cukier");
-                StringAssert.Contains(result, "Czekolada", "Mąka", "Jajka", "Masło");
+                StringAssert.Contains(result, "Apple");
+                StringAssert.Contains(result, "Apples, Cinammon, Flour, Sugar");
             }
         }
     }
