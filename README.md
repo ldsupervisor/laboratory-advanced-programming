@@ -11,4 +11,3 @@
 | **Adapter #2 (Lab)**                   | Adapter solution – loundry service                              | [Adapter #2](https://github.com/ldsupervisor/laboratory-advanced-programming/tree/master/Lab4/Solutions/Adapter)                                                            |
 | **Visitor #1 (Example)**               | Visitor pattern – visiting the house                            | [Visitor #1](https://github.com/ldsupervisor/laboratory-advanced-programming/tree/master/Lab4/Examples/VisitorPattern)                                                      |
 | **Visitor #2 (Lab)**                   | Visitor solution – educational report generation system         | [Visitor #2](https://github.com/ldsupervisor/laboratory-advanced-programming/tree/master/Lab4/Solutions/Visitor)        
-|
