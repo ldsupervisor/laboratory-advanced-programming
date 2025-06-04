@@ -1,25 +1,25 @@
-﻿using Cukiernia.Core.Plan;
-using Cukiernia.Core.Interfaces;
-using Cukiernia.Infrastructure.Fabryki;
+﻿using Bakery.Core.Plan;
+using Bakery.Core.Interfaces;
+using Bakery.Infrastructure.Factories;
 
 class Program
 {
     static void Main()
     {
-        var plan = new PlanPieczenia();
+        var plan = new BakingPlan();
 
-        List<IFabrykaCiasta> fabryki = new()
+        List<ICakeFactory> factories = new()
         {
-            new FabrykaCiastaCzekoladowego(),
-            new FabrykaCiastaJabłkowego()
+            new ChocklateCakeFactory(),
+            new AppleCakeFactory()
         };
 
-        foreach (var fabryka in fabryki)
+        foreach (var fabryka in factories)
         {
-            plan.DodajCiasto(fabryka);
+            plan.AddCake(fabryka);
         }
 
-        plan.WyświetlPlan_1_QueryMethod();
-        plan.WyswietlPlan_2_EnumeratorPattern();
+        plan.DisplayPlan_1();
+        plan.DisplayPlan_2();
     }
 }

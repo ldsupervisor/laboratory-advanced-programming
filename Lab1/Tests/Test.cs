@@ -1,7 +1,7 @@
-﻿using Cukiernia.Core.Plan;
-using Cukiernia.Infrastructure.Fabryki;
+﻿using Bakery.Core.Plan;
+using Bakery.Infrastructure.Factories;
 
-namespace Cukiernia.Tests
+namespace Bakery.Tests
 {
     [TestClass]
     public class PlanPieczeniaTests
@@ -10,13 +10,13 @@ namespace Cukiernia.Tests
         public void WyswietlPlan_DodawaniaCiasta()
         {
             // Arrange
-            var planPieczenia = new PlanPieczenia();
-            var fabrykaCiastaCzekoladowego = new FabrykaCiastaCzekoladowego();
-            var fabrykaCiastaJabłkowego = new FabrykaCiastaJabłkowego();
+            var planPieczenia = new BakingPlan();
+            var fabrykaCiastaCzekoladowego = new ChocklateCakeFactory();
+            var fabrykaCiastaJabłkowego = new AppleCakeFactory();
 
             // Act
-            planPieczenia.DodajCiasto(fabrykaCiastaCzekoladowego);
-            planPieczenia.DodajCiasto(fabrykaCiastaJabłkowego);
+            planPieczenia.AddCake(fabrykaCiastaCzekoladowego);
+            planPieczenia.AddCake(fabrykaCiastaJabłkowego);
 
             // Assert
             Assert.AreEqual(2, planPieczenia.Count(), "Ilość ciast w planie powinna być równa 2");
@@ -27,17 +27,17 @@ namespace Cukiernia.Tests
         public void WyświetlPlan_WyświetlaInformacjeOCiastach()
         {
             // Arrange
-            var planPieczenia = new PlanPieczenia();
-            var fabrykaCiasta1 = new FabrykaCiastaJabłkowego();
-            var fabrykaCiasta2 = new FabrykaCiastaCzekoladowego();
-            planPieczenia.DodajCiasto(fabrykaCiasta1);
-            planPieczenia.DodajCiasto(fabrykaCiasta2);
+            var planPieczenia = new BakingPlan();
+            var fabrykaCiasta1 = new AppleCakeFactory();
+            var fabrykaCiasta2 = new ChocklateCakeFactory();
+            planPieczenia.AddCake(fabrykaCiasta1);
+            planPieczenia.AddCake(fabrykaCiasta2);
 
             // Act
             using (StringWriter sw = new StringWriter())
             {
                 Console.SetOut(sw);
-                planPieczenia.WyświetlPlan_1_QueryMethod();
+                planPieczenia.DisplayPlan_1();
                 string result = sw.ToString();
 
                 // Assert

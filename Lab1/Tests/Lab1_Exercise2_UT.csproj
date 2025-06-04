@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Solutions\Exercise2\Exercise2.csproj" />
+    <ProjectReference Include="..\Solutions\Exercise2\FactoryMethod_2.csproj" />
   </ItemGroup>
 
   <ItemGroup>
